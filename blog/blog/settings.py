@@ -160,5 +160,5 @@ AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static') #this is the directory where the static files will be stored
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build','static') #this is the directory where the static files will be stored
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')

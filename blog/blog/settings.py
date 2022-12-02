@@ -139,6 +139,7 @@ LOGIN_URL = 'login' #built-in setting to redirect to login page if not logged in
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 
 """
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'    #this is the backend for sending emails using SMTP 
@@ -157,3 +158,7 @@ AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME') #this is the
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static') #this is the directory where the static files will be stored
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build','static') #this is the directory where the static files will be stored

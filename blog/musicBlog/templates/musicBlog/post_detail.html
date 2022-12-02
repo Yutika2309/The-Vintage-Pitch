@@ -1,0 +1,20 @@
+{% extends "musicBlog/base.html" %}
+{% block content %}
+    <article class="media content-section">
+        <img src="{{ object.author.profile.image.url }}" class="rounded-circle article-img">
+        <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
+            <small class="text-muted">{{ object.date_posted|date:'F d, Y' }}</small> <!--pipe is used as filter. The F d,Y format Month date, Year (more available on Django docs)-->
+            {% if object.author == user %}
+            <div>
+                <a class="btn btn-outline-info btn-sm" href="{% url 'post-update' object.id %}">Edit</a>
+                <a class="btn btn-outline-danger btn-sm" href="{% url 'post-delete' object.id %}">Delete</a>
+            </div>
+            {% endif %}
+        </div>
+        <h2 class="article-title">{{ object.title }} </h2>
+        <p class="article-content">{{ object.content }}</p>
+        </div>
+    </article>
+{% endblock content %}

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-u-+c$gs%wogh4(^r#aq=8nlkx9%ca+-#!ie4dtw6n+$x*#n29a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 
 
 # Application definition
@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+     #  'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+   #     'NAME': BASE_DIR / 'db.sqlite3',
+  #  }
 }
 
 
@@ -123,6 +123,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -138,8 +140,6 @@ LOGIN_REDIRECT_URL = 'blog-home' #built-in setting to redirect to home page afte
 LOGIN_URL = 'login' #built-in setting to redirect to login page if not logged in
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 
 """
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'    #this is the backend for sending emails using SMTP 
@@ -160,5 +160,3 @@ AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
